@@ -1,0 +1,31 @@
+:root {
+    --bg: #1d1f27;
+    --bg-2: #1d1f26;
+
+    --surface: #292d3a;
+    --surface-2: #393e4a;
+
+    --border: #3f4656;
+
+    --text: #e8eaed;
+    --text-muted: #a6adbb;
+
+    --primary: #01a982;
+    --accent: #00dfae;
+
+    --danger: #ec644b;
+    --done: #0b1412;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(180deg, var(--bg), var(--bg-2));
+    color: var(--text);
+}
+
+
+* { box-sizing: border-box; }

@@ -1,8 +1,8 @@
-<div class="task-item">
+<div class="task-item" [class.done]="task.completed">
     <label class="left">
         <input type="checkbox" [checked]="task.completed" (change)="toggleCompletion()" />
-        <span [class.completed]="task.completed">{{ task.name }}</span>
+        <span class="name" [class.completed]="task.completed">{{ task.name }}</span>
     </label>
 
-    <button type="button" (click)="deleteTask()">Delete</button>
+    <button class="delete" type="button" (click)="deleteTask()">Delete</button>
 </div>

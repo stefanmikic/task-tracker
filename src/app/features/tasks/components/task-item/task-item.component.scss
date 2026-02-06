@@ -2,31 +2,55 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem;
-  border-bottom: 1px solid blue;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+}
 
-  .left {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
+.task-item.done {
+  background: var(--primary);
+  color: var(--done);
+}
 
-  span.completed {
-    text-decoration: line-through;
-    color: gray;
-  }
+.name.completed {
+  text-decoration: line-through;
+  color: var(--done);
+}
 
-  button {
-    margin-left: 1rem;
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    cursor: pointer;
+.task-item.done .completed {
+  color: var(--done);
+}
 
-    &:hover {
-      background-color: red;
-    }
-  }
+.task-item.done:hover {
+  background: var(--accent);
+}
+
+.task-item:hover {
+  background: var(--surface-2);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.delete {
+  background: var(--danger);
+  border-radius: 0.5rem;
+}
+
+.delete:hover{
+  opacity: 0.7;
 }

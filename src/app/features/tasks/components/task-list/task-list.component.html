@@ -1,10 +1,10 @@
-<div class="task-list-container">
-    <form class="input-section" [formGroup]="form" (ngSubmit)="addTask()">
-        <input formControlName="name" placeholder="Enter task" />
-        <button type="submit" [disabled]="form.invalid">Add Task</button>
-        <button type="button" (click)="clearAll()" [disabled]="tasks().length === 0">Clear All</button>
-    </form>
+<form class="form-row" [formGroup]="form" (ngSubmit)="addTask()">
+    <input formControlName="name" placeholder="Enter task..." />
+    <button class="primary" type="submit" [disabled]="form.invalid">Add Task</button>
+    <button type="button" (click)="clearAll()" [disabled]="tasks().length === 0">Clear All</button>
+</form>
 
+<div class="list">
     <ul>
         @for (task of tasks(); track trackById($index, task)) {
             <li>
