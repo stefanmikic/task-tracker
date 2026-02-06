@@ -1,0 +1,32 @@
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border-bottom: 1px solid blue;
+
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  span.completed {
+    text-decoration: line-through;
+    color: gray;
+  }
+
+  button {
+    margin-left: 1rem;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: red;
+    }
+  }
+}
