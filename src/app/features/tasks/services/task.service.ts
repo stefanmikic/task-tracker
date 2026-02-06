@@ -9,11 +9,16 @@ import {Task} from "../models/task.model";
  * In-memory task store used in place of a backend API
  */
 export class TaskService {
-  private _tasks = signal<Task[]>([]);
+  private _tasks = signal<Task[]>([
+    { id: 1, name: 'Wake up at 6 am', completed: true },
+    { id: 2, name: 'Walk the dog', completed: true },
+    { id: 3, name: 'Work 8 hours', completed: false },
+    { id: 4, name: 'Go to gym', completed: false },
+  ]);
   tasks = this._tasks.asReadonly();
 
   //variable for id creation
-  private nextId : number = 2;
+  private nextId : number = 5;
 
   addTask(name: string): void {
     const task: Task = {
