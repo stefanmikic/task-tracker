@@ -1,8 +1,23 @@
 <form class="form-row" [formGroup]="form" (ngSubmit)="addTask()">
-    <input formControlName="name" placeholder="Enter task..." />
+    <div class="field">
+        <input formControlName="name" placeholder="Enter task" />
+
+        @if (showNameErrors) {
+            <div class="error">
+                @if (nameCtrl.hasError('required')) {
+                    Task name is required.
+                }
+                @if (nameCtrl.hasError('maxlength')) {
+                    Task name can not be longer than 64 characters.
+                }
+            </div>
+        }
+    </div>
+
     <button class="primary" type="submit" [disabled]="form.invalid">Add Task</button>
     <button type="button" (click)="clearAll()" [disabled]="tasks().length === 0">Clear All</button>
 </form>
+
 
 <div class="list">
     <ul>

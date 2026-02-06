@@ -21,18 +21,31 @@ export class TaskListComponent {
   readonly tasks: Signal<Task[]> = this.taskService.tasks;
 
   readonly form = this.fb.nonNullable.group({
-    name: ['', [Validators.required, Validators.maxLength(60)]],
+    name: ['', [Validators.required, Validators.maxLength(64)]],
   });
 
   addTask(): void {
-    if (this.form.invalid) return;
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
 
     this.taskService.addTask(this.form.controls.name.value);
     this.form.reset({ name: '' });
   }
 
+
   clearAll(): void {
     this.taskService.clearAll();
+  }
+
+  get nameCtrl() {
+    return this.form.controls.name;
+  }
+
+  get showNameErrors(): boolean {
+    const c = this.nameCtrl;
+    return c.invalid && (c.dirty || c.touched);
   }
 
   trackById(_index: number, task: Task): number {
